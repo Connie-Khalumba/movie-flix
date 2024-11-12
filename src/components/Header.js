@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import logo from '../assets/logo.png';
+import logo from '../assets/flix.png';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import userIcon from '../assets/user.png';
+import userIcon from '../assets/user2.png';
 import { IoIosSearch } from "react-icons/io";
 import { navigation } from '../contants/navigation';
 
@@ -63,7 +63,7 @@ const Header = () => {
                                 <IoIosSearch/>
                         </button>
                     </form>
-                    <div className='w-8 h-8 rounded-full overflow-hidden cursor-pointer active:scale-50 transition-all'>
+                    <div className='w-8 h-8  overflow-hidden cursor-pointer active:scale-50 transition-all'>
                         <img
                             src={userIcon}
                             alt=''
