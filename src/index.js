@@ -6,10 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { RouterProvider } from 'react-router-dom';
 import router from './routes';
 import axios from 'axios';
-import { Provider } from'react-redux';
+import { Provider } from 'react-redux';
 import { store } from './store/store';
-
-
 
 /**setup axios */
 axios.defaults.baseURL = "https://api.themoviedb.org/3"
@@ -18,10 +16,10 @@ axios.defaults.headers.common['Authorization'] = `Bearer ${process.env.REACT_APP
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-  <Provider store={store}>
-      <RouterProvider router={router}/>
-  </Provider>
-   
+    <Provider store={store}>
+          <RouterProvider router={router}/>
+    </Provider>
+  
   // </React.StrictMode>
 );
 
