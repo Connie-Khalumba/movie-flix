@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import logo from '../assets/flix.png';
+import React, { useEffect, useState } from 'react'
+import logo from '../assets/flix.png'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
-import userIcon from '../assets/user2.png';
-import { IoIosSearch } from "react-icons/io";
+import userIcon from '../assets/user2.png'
+import { IoSearchOutline } from "react-icons/io5";
 import { navigation } from '../contants/navigation';
 
 
-
 const Header = () => {
-  const location = useLocation()
-  const removeSpace = location?.search?.slice(3)?.split("%20")?.join(" ")
-  const [searchInput,setSearchInput] = useState(removeSpace)
-  const navigate = useNavigate()
+    const location = useLocation()
+    const removeSpace = location?.search?.slice(3)?.split("%20")?.join(" ")
+    const [searchInput,setSearchInput] = useState(removeSpace)
+    const navigate = useNavigate()
+   
+    useEffect(()=>{
+        if(searchInput){
+            navigate(`/search?q=${searchInput}`)
+        }
+    },[searchInput])
 
-
-
-  useEffect(()=>{
-    if(searchInput){
-      navigate(`/search?q=${searchInput}`)
+    const handleSubmit = (e)=>{
+        e.preventDefault()
     }
-  },[searchInput])
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
 
   return (
     <header className='fixed top-0 w-full h-16 bg-black bg-opacity-50 z-40'>
@@ -60,13 +57,12 @@ const Header = () => {
                             value={searchInput}
                         />
                         <button className='text-2xl text-white'>
-                                <IoIosSearch/>
+                                <IoSearchOutline/>
                         </button>
                     </form>
                     <div className='w-8 h-8  overflow-hidden cursor-pointer active:scale-50 transition-all'>
                         <img
                             src={userIcon}
-                            alt=''
                             width='w-ful h-full' 
                         />
                     </div>
